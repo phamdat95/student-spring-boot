@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete student</title>
+</head>
+<body>
+<h1>Delete student</h1>
+<p>
+    <a th:href="@{/list}">Back to list!</a>
+</p>
+<fieldset>
+    <legend>Delete</legend>
+    <form action="/delete" method="post" th:object="${student}">
+        <input type="hidden" th:field="*{id}">
+        <table>
+            <tr>
+                <td>Code:</td>
+                <td><a th:text="${student.code}" th:field="*{code}"></a></td>
+            </tr>
+            <tr>
+                <td>First Name:</td>
+                <td><a th:text="${student.firstName}" th:field="*{firstName}"></a></td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td><a th:text="${student.lastName}" th:field="*{lastName}"></a></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td><a th:text="${student.address}" th:field="*{address}"></a></td>
+            </tr>
+            <tr>
+                <td>Phone Number:</td>
+                <td><a th:text="${student.numberPhone}" th:field="*{numberPhone}"></a></td>
+            </tr>
+            <tr>
+                <td>Average Grade:</td>
+                <td><a th:text="${student.averageGrade}" th:field="*{averageGrade}"></a></td>
+            </tr>
+            <tr>
+                <td>Status:</td>
+                <td><a th:text="${student.status}" th:field="*{status}"></a></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><a th:text="${student.email}" th:field="*{email}"></a></td>
+            </tr>
+            <tr>
+                <td>Note:</td>
+                <td><a th:text="${student.note}" th:field="*{note}"></a></td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td><a th:text="${student.description}" th:field="*{description}"></a></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Delete"></td>
+            </tr>
+        </table>
+    </form>
+</fieldset>
+</body>
+</html>

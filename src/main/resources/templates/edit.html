@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Student</title>
+</head>
+<body>
+<h1>Edit Student</h1>
+<p>
+    <a th:href="@{/list}">Back to list!</a>
+</p>
+<fieldset>
+    <legend>Edit</legend>
+    <form action="/edit" method="post" th:object="${student}">
+        <input type="hidden" th:field="*{id}">
+        <table>
+            <tr>
+                <td>Code:</td>
+                <td>
+                    <input type="text" th:field="*{code}">
+                    <a th:if="${#fields.hasErrors('code')}" th:errors="*{code}">Name Error</a>
+                </td>
+            </tr>
+            <tr>
+                <td>First Name:</td>
+                <td>
+                    <input type="text" th:field="*{firstName}">
+                    <a th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Name Error</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td>
+                    <input type="text" th:field="*{lastName}">
+                    <a th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name Error</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td>
+                    <input type="text" th:field="*{address}">
+                    <a th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Name Error</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Phone Number:</td>
+                <td>
+                    <input type="text" th:field="*{numberPhone}">
+                    <a th:if="${#fields.hasErrors('numberPhone')}" th:errors="*{numberPhone}">Name Error</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Average Grade:</td>
+                <td>
+                    <input type="text" th:field="*{averageGrade}">
+                    <a th:if="${#fields.hasErrors('averageGrade')}" th:errors="*{averageGrade}">Name Error</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Status:</td>
+                <td>
+                    <input type="text" th:field="*{status}">
+                    <a th:if="${#fields.hasErrors('status')}" th:errors="*{status}">Name Error</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="text" th:field="*{email}"></td>
+            </tr>
+            <tr>
+                <td>Note:</td>
+                <td><input type="text" th:field="*{note}"></td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td><input type="text" th:field="*{description}"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><select th:field="*{department}">
+                    <option th:each="p : ${department}" th:value="${p.id}" th:text="${p.name}"></option>
+                </select></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Update"></td>
+            </tr>
+        </table>
+    </form>
+</fieldset>
+</body>
+</html>
